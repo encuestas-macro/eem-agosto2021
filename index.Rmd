@@ -1,0 +1,128 @@
+---
+css: style.css
+pagetitle: "EEM agosto 2021"
+output:
+  html_document: default
+---
+
+```{r config, include=FALSE}
+knitr::opts_chunk$set(message = FALSE, warning = FALSE, echo = FALSE)
+
+load(here::here("eem/outputs", "2021", "08. agosto", "ws_agosto_2021"))
+```
+
+<!-- Header del documento -->
+
+::: {.header}
+::: {.imagen}
+<img src="img/bcrd_squared.png" alt="drawing"/>
+:::
+
+::: {.title}
+<h2>Banco Central de la República Dominicana <br> Encuesta de Expectativas Macroeconómicas</h2>
+
+Agosto 2021
+:::
+:::
+
+<hr class="head-ruler">
+
+<!-- Inflación -->
+
+### Inflación
+
+------------------------------------------------------------------------
+
+::: {.inflacion-container}
+<!-- Redacción -->
+
+::: {.left .first}
+Las expectativas de inflación para el 2021 se colocaron, en promedio, en 6.05% en agosto. Un resultado que, por sexto mes consecutivo, excede el limite superior del rango de meta de inflación 4% +/- 1%.
+
+Hacia el horizonte de 12 meses se observan resultados similares, con expectativas de inflación interanual de 5.48% para agosto de 2022.
+:::
+
+::: {.right .first}
+#### Expectativas de inflación para el año 2021
+
+```{r plt_inflacion_diciembre, fig.width=5.5, fig.height=3.8}
+plotly_inflacion_diciembre
+```
+:::
+
+::: {.left .secondl}
+En cuanto a las expectativas de fin de año siguiente (2022) y los próximos 24 meses, estas continúan dentro al rango meta, esperando los analistas que se ubiquen en 4.71% y 4.45%, respectivamente.
+
+Además, señalan que en los próximos meses la inflación estará guiada por factores asociados a las condiciones provocadas por la pandemia, así como por el comportamiento reciente de los precios y el entorno internacional.
+:::
+
+::: {.right .second}
+#### Expectativas de inflación interanual y rango intercuartílico
+
+```{r ptl_desviacion_inflacion, fig.width=5.5, fig.height=3.8}
+plotly_ribbon_inflacion_12m
+```
+:::
+:::
+
+### Tipo de cambio
+
+------------------------------------------------------------------------
+
+::: {.tc-container}
+::: {.left .first}
+Para el cierre de año 2021, los analistas esperan que el tipo de cambio se coloque en RD\$58.6 por cada dólar, lo que implica una depreciación implícita interanual promedio de 0.42%.
+
+Asimismo, en los próximos 12 y 24 meses se prevé una depreciación de 4.79% y 4.70%, respectivamente, y consideran que, hacia el cierre del año siguiente (2022), el tipo de cambio rondaría los RD\$61.1, para una depreciación interanual de 4.3%.
+
+Estos resultados confirman que las expectativas de depreciación de los agentes están alineadas con el promedio histórico.
+:::
+
+::: {.right .first}
+#### Depreciación implícita del tipo de cambio
+
+```{r plt_depreciacion, fig.width=5.5, fig.height=3.8}
+plolty_jitter_tcd
+```
+:::
+:::
+
+### Crecimiento del PIB
+
+------------------------------------------------------------------------
+
+::: {.pib-container}
+::: {.left}
+En agosto, la expectativa promedio de crecimiento del PIB para el 2021 se coloca en 8.6%, un resultado caracterizado por la reducción en la dispersión de las respuestas, indicando niveles menores de incertidumbre que en períodos anteriores.
+
+Por otro lado, los pronósticos de crecimiento para el año 2022 se distribuyen alrededor de 5.7%, siendo 3.5% el valor mínimo y 8.0% el máximo en este horizonte.
+:::
+
+::: {.right}
+#### Evolución de las expectativas de crecimiento 2021
+
+```{r crecimiento_2020, fig.width=5.5, fig.height=3.8}
+plotly_pib_diciembre
+```
+:::
+:::
+
+### Tasa de Política Monetaria (TPM)
+
+------------------------------------------------------------------------
+
+::: {.pib-container}
+::: {.left}
+En este levantamiento los analistas no esperan cambios de postura en la política monetaria. Las expectativas de la TPM se mantienen en torno a su valor actual (3.0%) para fin de mes y fin de trimestre.
+
+Por su parte, para fin de año y a 12 meses se observan distribuciones alrededor de 3.2% y 3.7%, indicando que parte de los especialistas esperan una postura de política monetaria menos expansiva en esos horizontes.
+:::
+
+::: {.right}
+#### Distribución de las expectativas para la TPM
+
+```{r}
+plt_densidad_tpm
+```
+:::
+:::
